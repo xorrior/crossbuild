@@ -40,7 +40,7 @@ if [ -z ${LD_LIBRARY_PATH_ORIGIN+x} ]; then export LD_LIBRARY_PATH_ORIGIN=${LD_L
 if [ -n "${CROSS_TRIPLE}" ]; then
     export CROSS_ROOT="/usr/${CROSS_TRIPLE}"
     export PATH="${CROSS_ROOT}/bin:${PATH_ORIGIN}"
-    export LD_LIBRARY_PATH="/usr/x86_64-linux-gnu/${CROSS_TRIPLE}/lib:${LD_LIBRARY_PATH_ORIGIN}"
+    export LD_LIBRARY_PATH="/usr/x86_64-linux-gnu/${CROSS_TRIPLE}/lib:/usr/osxcross/lib:${LD_LIBRARY_PATH_ORIGIN}"
 fi
 
 # try to exec direct binary instead on relying on the $PATH
