@@ -51,20 +51,15 @@ RUN set -x; echo "Starting image build for Debian Stretch" \
 # FIXME: add mips and powerpc architectures
 
 
-# Install Windows cross-tools
-RUN apt-get install -y mingw-w64 \
- && apt-get clean
-
-
 # Install OSx cross-tools
 
 #Build arguments
 ARG osxcross_repo="tpoechtrager/osxcross"
 ARG osxcross_revision="542acc2ef6c21aeb3f109c03748b1015a71fed63"
-ARG darwin_sdk_version="10.10"
+ARG darwin_sdk_version="10.15"
 ARG darwin_osx_version_min="10.6"
 ARG darwin_version="14"
-ARG darwin_sdk_url="https://www.dropbox.com/s/yfbesd249w10lpc/MacOSX${darwin_sdk_version}.sdk.tar.xz"
+ARG darwin_sdk_url="https://github.com/xorrior/osxsdk/raw/master/MacOSX${darwin_sdk_version}.sdk.tar.xz"
 
 # ENV available in docker image
 ENV OSXCROSS_REPO="${osxcross_repo}"                   \
