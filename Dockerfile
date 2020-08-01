@@ -46,7 +46,17 @@ RUN set -x; echo "Starting image build for Debian Stretch" \
         lzma-dev                                       \
         openssl                                        \
         libssl-dev                                     \
+        libpython2.7-dev                               \
+        libcurl3                                       \
+        libpython2.7                                   \
+        wget                                           \
+        nano                                           \
  && apt-get clean
+RUN wget https://swift.org/builds/swift-4.2.1-release/ubuntu1804/swift-4.2.1-RELEASE/swift-4.2.1-RELEASE-ubuntu18.04.tar.gz
+RUN tar xzf swift-4.2.1-RELEASE-ubuntu18.04.tar.gz
+RUN mv swift-4.2.1-RELEASE-ubuntu18.04 /opt/swift
+RUN echo "export PATH=/opt/swift/swift/usr/bin:$PATH" >> ~/.bashrc
+
 # FIXME: install gcc-multilib
 # FIXME: add mips and powerpc architectures
 
